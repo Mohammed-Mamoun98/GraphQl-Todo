@@ -1,12 +1,9 @@
+const { QueryResolver } = require("./Query");
+const { MutationResolver } = require("./Mutation");
+
 const resolvers = {
-  Query: {
-    hello: (_, args) => `hello ${args.name}`,
-    getTodos: () => [{ title: "hello" }],
-    addTodo: (_, { todo: { title, completed = false } }) => ({
-      title,
-      completed
-    })
-  }
+  ...QueryResolver,
+  ...MutationResolver
 };
 
 module.exports = resolvers;
